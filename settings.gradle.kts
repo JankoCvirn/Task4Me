@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Task4Me"
 include(":app")
+include(":data")

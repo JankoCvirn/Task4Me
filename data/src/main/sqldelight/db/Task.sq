@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS Task (
+    id INTEGER NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL
+);
+
+selectAllTasks:
+SELECT * FROM Task;
+
+insertTask:
+INSERT OR REPLACE INTO Task VALUES (?,?);

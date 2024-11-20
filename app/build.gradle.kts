@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.cvirn.task4me"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.cvirn.task4me"
         minSdk = 29
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -76,4 +76,6 @@ dependencies {
     // Navigation
     implementation(libs.navigation.compose)
     implementation(libs.navigation.runtime)
+
+    implementation(project(":data"))
 }
