@@ -51,4 +51,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.sqldelight.driver.android)
     implementation(libs.sqldelight.coroutines)
+    implementation(libs.koin.core)
 }

@@ -1,5 +1,5 @@
 [versions]
-agp = "8.4.2"
+agp = "8.7.2"
 kotlin = "1.9.0"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -13,6 +13,9 @@ navigation = "2.8.4"
 sqldelight = "2.0.0"
 appcompat = "1.7.0"
 material = "1.12.0"
+uiTextGoogleFonts = "1.7.5"
+constraintlayout = "2.2.0"
+ktlint = "0.50.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -40,10 +43,13 @@ sqldelight-driver-android = { module = "app.cash.sqldelight:android-driver", ver
 sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions-jvm", version.ref = "sqldelight" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+androidx-ui-text-google-fonts = { group = "androidx.compose.ui", name = "ui-text-google-fonts", version.ref = "uiTextGoogleFonts" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version = "11.6.0" }
 

@@ -8,3 +8,9 @@ SELECT * FROM Task;
 
 insertTask:
 INSERT OR REPLACE INTO Task VALUES (?,?);
+
+deleteTask:
+DELETE FROM Task WHERE id = ?;
+
+updateTask:
+UPDATE Task SET name=? WHERE id = ?;
