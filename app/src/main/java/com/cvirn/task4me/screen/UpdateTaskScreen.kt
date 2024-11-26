@@ -30,19 +30,19 @@ import db.Task
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun UpdateTaskScreen(onNavigateBack: () -> Boolean) {
+fun UpdateTaskScreen(task: Task, onNavigateBack: () -> Boolean) {
     val taskViewModel: TaskViewModel = koinViewModel()
-    var inputText by remember { mutableStateOf("") }
+    var inputText by remember { mutableStateOf(task?.name ?: "") }
 
     UpdateTaskContent(
         inputText = inputText,
         onTextChange = { inputText = it },
         onSubmit = { taskName ->
-            taskViewModel.updateTask(Task(id = 100L, name = taskName))
+            taskViewModel.updateTask(Task(id = task.id, name = taskName))
             onNavigateBack()
         },
         onDelete = {
-            taskViewModel.deleteTask(Task(id = 100L, name = inputText))
+            taskViewModel.deleteTask(Task(id = task.id, name = inputText))
             onNavigateBack()
         }
     )
@@ -65,13 +65,17 @@ fun UpdateTaskContent(
         EnterTextField(
             text = inputText,
             onTextChange = onTextChange,
-            placeholder = stringResource(R.string.hint_create_task)
+            placeholder = stringResource(R.string.hint_create_task),
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Row (modifier = Modifier.fillMaxWidth().padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ) {
             Button(onClick = { onSubmit(inputText) }) {
                 Text(text = stringResource(R.string.action_update))
             }

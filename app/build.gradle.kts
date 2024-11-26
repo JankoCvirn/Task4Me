@@ -78,6 +78,8 @@ dependencies {
     // Navigation
     implementation(libs.navigation.compose)
     implementation(libs.navigation.runtime)
+    //Gson
+    implementation(libs.google.gson)
 
     implementation(project(":data"))
 }

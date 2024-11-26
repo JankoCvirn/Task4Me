@@ -4,5 +4,5 @@
     <string name="action_create">Create</string>
     <string name="action_update">Update</string>
     <string name="action_delete">Delete</string>
-    <string name="hint_create_task">Add</string>
+    <string name="hint_create_task">Enter task name</string>
 </resources>

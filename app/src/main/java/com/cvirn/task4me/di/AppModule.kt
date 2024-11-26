@@ -16,6 +16,6 @@ val appModule =
         single { UpdateTaskUseCaseImpl(get()) }
         single { DeleteTaskUseCaseImpl(get()) }
 
-        viewModel { HomeViewModel(get(), get()) }
+        viewModel { HomeViewModel(get()) }
         viewModel { TaskViewModel(get(), get(), get()) }
     }

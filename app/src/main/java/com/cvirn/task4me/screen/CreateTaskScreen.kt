@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import com.cvirn.task4me.R
 import com.cvirn.task4me.components.createtask.EnterTextField
 import com.cvirn.task4me.ui.theme.Task4Me
+import com.cvirn.task4me.ui.values.LocalPaddingValues
 import com.cvirn.task4me.viewmodel.TaskViewModel
 import db.Task
 import org.koin.androidx.compose.koinViewModel
@@ -61,7 +62,7 @@ fun CreateTaskContent(
             placeholder = stringResource(R.string.hint_create_task)
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(LocalPaddingValues.current.large))
 
         Button(onClick = { onSubmit(inputText) }) {
             Text(text = stringResource(R.string.action_create))

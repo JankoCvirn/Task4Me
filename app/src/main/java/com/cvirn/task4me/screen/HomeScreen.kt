@@ -27,7 +27,7 @@ import db.Task
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun HomeScreen(onNavigateToCreate: () -> Unit, onNavigateToUpdate: () -> Unit) {
+fun HomeScreen(onNavigateToCreate: () -> Unit, onNavigateToUpdate: (Task?) -> Unit) {
     val homeViewModel: HomeViewModel = koinViewModel()
     val taskList by homeViewModel.allTasksFlow.collectAsStateWithLifecycle()
     LaunchedEffect(Unit) {
@@ -35,8 +35,8 @@ fun HomeScreen(onNavigateToCreate: () -> Unit, onNavigateToUpdate: () -> Unit) {
     }
     HomeScreenContent(
         taskList = taskList,
-        onNavigateToCreate = { onNavigateToCreate() },
-        onNavigateToUpdate = { onNavigateToUpdate() }
+        onNavigateToCreate = onNavigateToCreate,
+        onNavigateToUpdate = onNavigateToUpdate
     )
 }
 
@@ -44,7 +44,7 @@ fun HomeScreen(onNavigateToCreate: () -> Unit, onNavigateToUpdate: () -> Unit) {
 fun HomeScreenContent(
     taskList: List<Task>,
     onNavigateToCreate: () -> Unit,
-    onNavigateToUpdate: () -> Unit
+    onNavigateToUpdate: (Task?) -> Unit
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
         LazyColumn(
@@ -52,7 +52,7 @@ fun HomeScreenContent(
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             items(taskList) {
-                TaskCard(it, onClick = { onNavigateToUpdate() })
+                TaskCard(it, onClick = { onNavigateToUpdate(it) })
             }
         }
         Task4meFloatingAction(
@@ -85,7 +85,7 @@ fun PreviewHomeScreenContent() {
                 Task(id = 12L, name = "Small task 2"),
                 Task(id = 13L, name = "Small task 3"),
                 Task(id = 14L, name = "Small task 4"),
-            ), {} , {}
+            ), {}, {}
         )
     }
 }

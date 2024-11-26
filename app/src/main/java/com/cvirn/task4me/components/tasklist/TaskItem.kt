@@ -27,14 +27,17 @@ import db.Task
 fun TaskCard(task: Task, modifier: Modifier = Modifier, onClick: () -> Unit) {
     Card(
         modifier = modifier
-            .padding(horizontal = 16.dp, vertical = 4.dp)
+            .padding(
+                horizontal = LocalPaddingValues.current.large,
+                vertical = LocalPaddingValues.current.medium
+            )
             .semantics { }
             .clickable { onClick() },
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(20.dp)
+                .padding(LocalPaddingValues.current.extraLarge)
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
